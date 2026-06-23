@@ -4,6 +4,66 @@
    expressed natively here instead of via inline JS styles.
    ============================================================ */
 
+/* ---------- Keyframes ----------
+   Defined here (not in globals.css) so CSS Modules scopes the keyframe
+   names to the exact hashed identifiers used by the `animation:` rules
+   below — otherwise the references and definitions never match. */
+@keyframes dossier-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+@keyframes dossier-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes dossier-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes dossier-sheen {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 220% 50%;
+  }
+}
+@keyframes dossier-float1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(70px, 46px) scale(1.18);
+  }
+}
+@keyframes dossier-float2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-56px, 34px) scale(1.12);
+  }
+}
+
 /* ---------- Shell ---------- */
 .root {
   position: relative;
