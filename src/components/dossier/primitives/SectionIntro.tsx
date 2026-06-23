@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import styles from "../dossier.module.css";
 import { Sheen } from "./Sheen";
+import { SplitReveal } from "./SplitReveal";
 
 /**
  * The 5fr/7fr intro block: a large two-tone headline on the left and a
@@ -19,10 +20,10 @@ export function SectionIntro({
 }) {
   return (
     <div data-reveal className={styles.intro} style={{ marginBottom: mb }}>
-      <h2 className={styles.introTitle}>
+      <SplitReveal as="h2" className={styles.introTitle}>
         {lead}
         <Sheen>{sheen}</Sheen>
-      </h2>
+      </SplitReveal>
       <p className={styles.introText}>{text}</p>
     </div>
   );

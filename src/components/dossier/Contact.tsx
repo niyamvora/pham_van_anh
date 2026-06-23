@@ -1,6 +1,7 @@
 import styles from "./dossier.module.css";
 import { SectionHeader } from "./primitives/SectionHeader";
 import { Sheen } from "./primitives/Sheen";
+import { SplitReveal } from "./primitives/SplitReveal";
 import { EmW } from "./primitives/Highlights";
 import { contactLinks } from "@/lib/content";
 
@@ -11,9 +12,9 @@ export function Contact() {
 
       <div className={styles.contactGrid}>
         <div data-reveal>
-          <h2 className={styles.contactH2}>
+          <SplitReveal as="h2" className={styles.contactH2}>
             Tell me what <Sheen>you&apos;re building.</Sheen>
-          </h2>
+          </SplitReveal>
           <p className={styles.contactP}>
             Available April — December 2026 for fractional GTM leadership,
             founding BD engagements, and Asia ↔ Europe market entry. I take 2–3

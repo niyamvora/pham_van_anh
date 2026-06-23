@@ -1,5 +1,6 @@
 import styles from "./dossier.module.css";
 import { Sheen } from "./primitives/Sheen";
+import { SplitReveal } from "./primitives/SplitReveal";
 import { EmW } from "./primitives/Highlights";
 import { heroStats } from "@/lib/content";
 
@@ -11,9 +12,9 @@ export function Hero({ statusLabel }: { statusLabel: string }) {
         <span className={styles.badgeText}>{statusLabel}</span>
       </div>
 
-      <h1 data-reveal className={styles.h1}>
+      <SplitReveal as="h1" className={styles.h1}>
         Marketer <Sheen>turned</Sheen> founding GTM.
-      </h1>
+      </SplitReveal>
 
       <p data-reveal className={styles.heroSub}>
         Turning ideas into <EmW>shipping, scalable products</EmW> — founding GTM

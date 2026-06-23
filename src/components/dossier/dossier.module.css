@@ -414,6 +414,8 @@
   gap: 0;
   width: max-content;
   animation: dossier-scroll 42s linear infinite;
+  position: relative;
+  z-index: 1;
 }
 
 .marqueeGroup {
@@ -428,25 +430,38 @@
 
 .marqueeItem {
   padding: 0 36px;
-  background-size: 220% auto;
 }
 
 .marqueeSlash {
   color: var(--accent, #5b9dff);
 }
 
-/* Hovering the band fills every label with the animated accent gradient. */
-.marquee:hover .marqueeItem {
+/* Hovering the band fills its background with the animated accent gradient.
+   The labels keep their letterforms but flip to white for contrast — readable
+   on the saturated gradient in both dark and light themes. */
+.marquee::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
   background-image: linear-gradient(
     100deg,
     var(--accent, #5b9dff),
     #a17bff,
     var(--accent, #5b9dff)
   );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  background-size: 220% auto;
   animation: dossier-sheen 7s linear infinite;
+}
+.marquee:hover::before {
+  opacity: 1;
+}
+.marquee:hover .marqueeItem,
+.marquee:hover .marqueeSlash {
+  color: #fff;
 }
 
 /* ---------- Section scaffolding ---------- */
