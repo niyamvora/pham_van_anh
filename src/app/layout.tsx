@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pham Van Anh — Dossier",
+  title: "Pham Thi Van Anh — Founding GTM · BD Lead",
   description:
-    "Marketer turned founding GTM. Founding go-to-market on two AI products in production, Master in Management at INSEAD.",
+    "Founding GTM on two AI products in production. Master in Marketing Management at ESSEC. Available now for fractional GTM, founding BD, and market entry.",
 };
 
 export default function RootLayout({

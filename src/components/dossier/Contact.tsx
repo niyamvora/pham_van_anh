@@ -12,20 +12,9 @@ export function Contact() {
 
       <div className={styles.contactGrid}>
         <div data-reveal>
-          <SplitReveal as="h2" className={styles.contactH2}>
-            Tell me what <Sheen>you&apos;re building.</Sheen>
-          </SplitReveal>
-          <p className={styles.contactP}>
-            Available April — December 2026 for fractional GTM leadership,
-            founding BD engagements, and Asia ↔ Europe market entry. I take 2–3
-            engagements at a time. The product must be interesting; the buyer
-            must be enterprise.
-          </p>
-          <p className={styles.contactP}>
-            <EmW>Currently best fit for:</EmW> European AI scale-ups entering Asia
-            · Asian B2B SaaS targeting EU enterprise · Founding-team GTM for
-            AI-native products pre-Series A.
-          </p>
+        <h2 className={styles.contactThesis}>
+  Tell me what <em>you&apos;re building.</em>
+</h2>
         </div>
 
         <div data-reveal className={styles.contactList}>

@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import styles from "../dossier.module.css";
-import { Sheen } from "./Sheen";
 import { SplitReveal } from "./SplitReveal";
 
 /**
@@ -22,7 +21,7 @@ export function SectionIntro({
     <div data-reveal className={styles.intro} style={{ marginBottom: mb }}>
       <SplitReveal as="h2" className={styles.introTitle}>
         {lead}
-        <Sheen>{sheen}</Sheen>
+        <em>{sheen}</em>
       </SplitReveal>
       <p className={styles.introText}>{text}</p>
     </div>

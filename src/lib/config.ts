@@ -11,6 +11,6 @@ export const dossierConfig = {
   showGrid: true,
 } as const;
 
-export const statusLabel = dossierConfig.available
-  ? "Available for engagements — Apr–Dec 2026"
-  : "Fully booked — waitlist open";
+export const statusLabel: string = dossierConfig.available
+  ? "Available now · taking 1–2 engagements"
+  : "Currently fully booked";

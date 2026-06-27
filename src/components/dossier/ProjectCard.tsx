@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./dossier.module.css";
 import { SpotlightCard } from "./primitives/SpotlightCard";
 import { CountUp } from "./primitives/CountUp";
@@ -47,6 +48,16 @@ export function ProjectCard({ project }: { project: Project }) {
           <span>{project.staticLink.right}</span>
         </div>
       ) : null}
+
+      {project.caseStudyId && (
+        <Link
+          href={`/work/${project.caseStudyId}`}
+          className={styles.caseStudyBtn}
+        >
+          <span>Read case study</span>
+          <span className={styles.caseStudyBtnArrow}>→</span>
+        </Link>
+      )}
     </SpotlightCard>
   );
 }

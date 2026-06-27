@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import styles from "./dossier.module.css";
 import { Sheen } from "./primitives/Sheen";
 import { SplitReveal } from "./primitives/SplitReveal";
@@ -5,6 +6,24 @@ import { EmW } from "./primitives/Highlights";
 import { heroStats } from "@/lib/content";
 
 export function Hero({ statusLabel }: { statusLabel: string }) {
+  const roles = [
+    { text: "Founding GTM", color: "#8FA37F" },
+    { text: "Marketing Project Manager", color: "#7F9BA3" },
+    { text: "Business Development", color: "#A38B7F" },
+  ];
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex(i => (i + 1) % roles.length);
+        setVisible(true);
+      }, 500);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <section className={styles.hero}>
       <div data-reveal className={styles.badge}>
@@ -12,21 +31,25 @@ export function Hero({ statusLabel }: { statusLabel: string }) {
         <span className={styles.badgeText}>{statusLabel}</span>
       </div>
 
-      <SplitReveal as="h1" className={styles.h1}>
-        Marketer <Sheen>turned</Sheen> founding GTM.
-      </SplitReveal>
+      <h1 className={styles.heroThesis}>
+        <em style={{
+          display: "inline-block",
+          color: roles[index].color,
+          opacity: visible ? 1 : 0,
+          transition: "opacity 0.5s ease",
+          fontStyle: "italic",
+        }}>
+          {roles[index].text}
+        </em>
+      </h1>
 
-      <p data-reveal className={styles.heroSub}>
-        Turning ideas into <EmW>shipping, scalable products</EmW> — founding GTM
-        on two AI products in production, Master in Management at INSEAD.
+      <p className={styles.heroSub}>
+        I take AI-native products from <strong>zero brand to first paying enterprises.</strong>
       </p>
 
       <div data-reveal className={styles.ctaRow}>
         <a href="#work" data-magnetic className={styles.btnPrimary}>
           See the work <span className={styles.btnArrow}>→</span>
-        </a>
-        <a href="#contact" data-magnetic className={styles.btnSecondary}>
-          Book a 30-min call <span className={styles.btnArrow}>↗</span>
         </a>
       </div>
 

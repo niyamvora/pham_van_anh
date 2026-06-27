@@ -10,16 +10,15 @@ export function Career() {
       <SectionIntro
         lead="Six rooms. "
         sheen="One operator."
-        text="Diplomacy, enterprise tech, retail discipline, founding-team execution, European strategy, and continuous marketing craft. Each room taught a different way to read the same problem. They compound."
+        text="Diplomacy, enterprise tech, retail discipline, founding-team execution, and continuous marketing craft. Each room taught a different way to read the same problem."
       />
 
       <div>
         {career.map((row) => (
           <div key={row.num} data-reveal className={styles.careerRow}>
             <div
-              className={`${styles.careerNum} ${
-                row.active ? styles.careerNumActive : ""
-              }`}
+              className={`${styles.careerNum} ${row.active ? styles.careerNumActive : ""
+                }`}
             >
               {row.num}
             </div>

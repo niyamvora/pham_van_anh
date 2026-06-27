@@ -10,7 +10,7 @@ export function Capabilities() {
       <SectionIntro
         lead="The "
         sheen="operator's surface."
-        text="The three domains that compound when you take a product from zero brand to first paying enterprise."
+        text="The three domains that compound when I take a product from zero brand to first paying enterprise."
       />
 
       <div className={styles.capGrid}>

@@ -10,7 +10,7 @@ export function About() {
       <SectionIntro
         lead="I build ideas. "
         sheen="Then I sell them."
-        text="Long before the title, the muscle is built from character, curiosity, and the discipline of relationships. Here is how the pattern revealed itself."
+        text="Long before the title, the muscle is built from character, curiosity, and the discipline of relationships."
         mb={80}
       />
 
