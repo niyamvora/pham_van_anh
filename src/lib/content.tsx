@@ -1,6 +1,3 @@
-import type { ReactNode } from "react";
-import { Em } from "@/components/dossier/primitives/Highlights";
-
 /* ============================================================
    All copy for the dossier lives here so the section components
    stay purely presentational and data-driven.
@@ -29,129 +26,6 @@ export const marqueeItems = [
   "Digital Marketing",
   "AI Productivity Tools",
 ] as const;
-
-export type Stat = { num: string; label: string };
-
-export type Project = {
-  live?: boolean;
-  /** Live badge label or plain date range shown top-left. */
-  period: string;
-  /** Discipline label shown top-right. */
-  kind: string;
-  title: string;
-  tagline: string;
-  desc: ReactNode;
-  stats: Stat[];
-  /** External link footer (omit for a static, non-linked footer). */
-  link?: { href: string; label: string };
-  /** Static footer used when there is no outbound link. */
-  staticLink?: { label: string; right: string };
-  /** ID matching the caseStudies.ts entry, enables "Read case study →" button. */
-  caseStudyId?: string;
-};
-
-export const projects: Project[] = [
-  {
-    live: true,
-    period: "Live · 2025 — Now",
-    kind: "Founding GTM",
-    title: "ShinobiData",
-    tagline: "Bloomberg-grade equity research, queryable from any AI agent.",
-    desc: (
-      <>
-        US equity research platform — 10,000+ tickers, 200+ screener fields,
-        sub-50ms filters, natural-language queries in 5 languages.{" "}
-        <Em>
-          The first equity research MCP server listed on the official Anthropic
-          MCP Registry
-        </Em>
-        , queryable natively from Claude, ChatGPT, Gemini, and Perplexity via
-        OAuth 2.1.
-      </>
-    ),
-    stats: [
-      { num: "10k+", label: "Tickers Indexed" },
-      { num: "5", label: "AI Agents Integrated" },
-      { num: "v1.0", label: "On Anthropic Registry" },
-    ],
-    link: { href: "https://shinobidata.com", label: "shinobidata.com" },
-    caseStudyId: "shinobidata",
-  },
-  {
-    live: true,
-    period: "Live · 2026 — Now",
-    kind: "Founding BD & GTM Lead",
-    title: "SimpliDeliver",
-    tagline: "Six channels, one inbox. Talk to every customer from one screen.",
-    desc: (
-      <>
-        Multi-channel CRM unifying WhatsApp, Zalo, Facebook, Instagram, Shopee,
-        and TikTok in a single workspace. <Em>Official Meta Business Partner</Em>
-        , SOC 2 compliant, 99.9% uptime. I took the product from zero brand
-        recognition to <Em>8 paying B2B enterprises in the first 3 months</Em> —
-        after 30 founder-level discovery interviews across Vietnam, India, and
-        Malaysia.
-      </>
-    ),
-    stats: [
-      { num: "8", label: "Paying B2B Customers in 3 Mo." },
-      { num: "30", label: "Founder Discovery Calls" },
-      { num: "6", label: "Channels Unified" },
-    ],
-    link: { href: "https://simplideliver.com", label: "simplideliver.com" },
-    caseStudyId: "simplideliver",
-  },
-  {
-    period: "2024 — 2025",
-    kind: "Business Project Manager · Growth & Brand",
-    title: "DarkHorseStocks",
-    tagline: "From scratch to 46,000+ subscribers across four channels.",
-    desc: (
-      <>
-        Led growth across digital channels for an AI-powered equity research
-        platform — LinkedIn, Instagram, Twitter, and Telegram.{" "}
-        <Em>Scaled the Telegram subscriber base to 46,000+</Em> as the primary
-        distribution channel. Collaborated with the founding team to translate
-        user needs into platform communication and growth requirements. Built
-        business and investment-focused content across Quora and social media,
-        managed branded campaigns, and supported lead generation through LinkedIn
-        outreach and email capture.
-      </>
-    ),
-    stats: [
-      { num: "46k+", label: "Telegram Subscribers" },
-      { num: "10k+", label: "Instagram Following" },
-      { num: "5.2k+", label: "Twitter Following" },
-    ],
-    link: { href: "https://www.darkhorsestocks.in", label: "darkhorsestocks.in" },
-    caseStudyId: "darkhorsestocks",
-  },
-  {
-    period: "Dec 2025 — May 2026",
-    kind: "Strategic Marketing Consultant",
-    title: "Ferrero",
-    tagline: "Rebuilding TicTac branding for Asia-Pacific.",
-    desc: (
-      <>
-        Six-month consultancy on <Em>TicTac&apos;s APAC repositioning</Em>, with
-        the first regional campaign launching in Singapore. Led brand
-        repositioning end-to-end through four workstreams: consumer and sales
-        data analysis identifying purchase drivers and trend signals; competitor
-        benchmarking and SWOT across FMCG confectionery; functional and emotional
-        brand insight development for regional strategy; and a
-        customer-engagement playbook combining digital touchpoints with
-        experiential campaigns.
-      </>
-    ),
-    stats: [
-      { num: "APAC", label: "Regional Scope" },
-      { num: "SG", label: "Launch Market" },
-      { num: "4", label: "Strategy Workstreams" },
-    ],
-    staticLink: { label: "TicTac · Ferrero APAC", right: "—" },
-    caseStudyId: "ferrero",
-  },
-];
 
 export type CareerRow = {
   num: string;
@@ -214,6 +88,7 @@ export type Campaign = {
   tagAccent?: boolean;
   title: string;
   desc: string;
+  briefPdf?: string;
 };
 
 /** Judged competition work */
@@ -224,6 +99,7 @@ export const competitionWins: Campaign[] = [
     tagAccent: true,
     title: "AB InBev",
     desc: "Market entry strategy for a global beverage portfolio launching in Vietnam. Built segmentation logic, channel activation playbooks, and retail execution across both modern and traditional trade.",
+    briefPdf: "/campaigns/ab-inbev.pdf",
   },
   {
     year: "2022",
@@ -231,18 +107,21 @@ export const competitionWins: Campaign[] = [
     tagAccent: true,
     title: "MB Bank",
     desc: "Financial services campaign concept. Designed the digital customer journey, engagement architecture, and conversion activation targeting a younger banking demographic.",
+    briefPdf: "/campaigns/mb-bank.pdf",
   },
   {
     year: "2022",
     tag: "Web3 Brand Strategy",
     title: "NFT Eazy Empire",
     desc: "Launch positioning for a Web3 collectibles platform. Designed the creator activation framework, tokenomics narrative, and a first 10,000 holder community playbook for early stage Web3 growth.",
+    briefPdf: "/campaigns/nft-eazy-empire.pdf",
   },
   {
     year: "2022",
     tag: "Cultural Awareness",
     title: "Violent Communication",
     desc: "Awareness campaign reframing the language of digital conflict by translating Nonviolent Communication theory into culture forward, short form content native to Gen Z platforms.",
+    briefPdf: "/campaigns/violent-communication.pdf",
   },
 ];
 
@@ -253,24 +132,28 @@ export const strategicConcepts: Campaign[] = [
     tag: "Luxury Retail · Concept",
     title: "Chanel",
     desc: "Mystery shopping benchmark across Chanel, Dior, and Guerlain, decoding the rituals of luxury service, brand value delivery, and the behavioural signals that turn experience into willingness to pay.",
+    briefPdf: "/campaigns/chanel.pdf",
   },
   {
     year: "2026",
     tag: "Editorial Beauty · Concept",
     title: "L'Oréal",
     desc: "Editorial beauty campaign direction. Built the launch storytelling, branded experience planning, and creator partnership architecture for premium category entry in a saturated market.",
+    briefPdf: "/campaigns/loreal.pdf",
   },
   {
     year: "2026",
     tag: "Premium Lifestyle · Concept",
     title: "Soirée by Sephora",
     desc: "Nightwear collection launch concept. Designed the moodboard direction, brand narrative, and event architecture for a premium evening ritual targeted at urban Gen Z.",
+    briefPdf: "/campaigns/soiree-by-sephora.pdf",
   },
   {
     year: "2026",
     tag: "Brand Vision · Concept",
     title: "Filé",
     desc: "Multi page strategic marketing concept spanning positioning, content rollout, campaign architecture, and brand vision for 2026 launch. Built end to end from brand foundation to go to market roadmap.",
+    briefPdf: "/campaigns/file.pdf",
   },
 ];
 

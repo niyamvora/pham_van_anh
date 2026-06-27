@@ -17,7 +17,20 @@ export function CampaignCard({ campaign }: { campaign: Campaign }) {
       </div>
       <h3 className={styles.campaignTitle}>{campaign.title}</h3>
       <p className={styles.campaignDesc}>{campaign.desc}</p>
-      <span className={styles.campaignCta}>Read brief →</span>
+      {campaign.briefPdf ? (
+        <a
+          href={campaign.briefPdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.campaignCta}
+        >
+          Read brief &rarr;
+        </a>
+      ) : (
+        <span className={`${styles.campaignCta} ${styles.campaignCtaDisabled}`}>
+          Read brief &rarr;
+        </span>
+      )}
     </SpotlightCard>
   );
 }
